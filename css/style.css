@@ -34,17 +34,20 @@
 }
 
 .head{
-    background: linear-gradient(red, yellow);
-    border: 2px solid purple;
+    background: url("../img/freepik__background__96184.png") no-repeat center center;
+    background-size: cover;
+    /* border: 2px solid purple; */
     border-radius: 50%;
     transform: scale(1.02);
 }
 
+
 .snake{
-    background-color: #CE8946;
-    border: .25vmin solid whilte;
+    background: linear-gradient(to right, #8B4513, #A0522D); /* Example colors */
+    border: .25vmin solid white;
     border-radius: 25%;
 }
+
 
 
 .food{

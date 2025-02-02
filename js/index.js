@@ -35,7 +35,7 @@ function isCollide(snake) {
         return true;
     }
 
-    return false; // Missing return statement
+    return false;
 }
 
 function gameEngine() {
@@ -48,23 +48,25 @@ function gameEngine() {
         snakeArr = [{x: 13, y: 15}];
         // musicSound.play();
         score = 0;
-        document.getElementById('score').innerHTML = "Score: " + score; // Corrected score update
+        document.getElementById('score').innerHTML = "Score: " + score;
     }
 
     // If you have eaten food, increment the score and regenerate the food
     if (snakeArr[0].y === food.y && snakeArr[0].x === food.x) {
         foodSound.play();
         score += 1;
-        document.getElementById('score').innerHTML = "Score: " + score; // Corrected score update
+        document.getElementById('score').innerHTML = "Score: " + score;
         snakeArr.unshift({x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y});
-        let a = 2;
-        let b = 16;
-        food = {x: 2 + Math.round(a + (b - a) * Math.random()), y: 2 + Math.round(a + (b - a) * Math.random())};
+        let a = 1; // Corrected range to keep food within bounds
+        let b = 17; // Corrected range to keep food within bounds
+        food = {
+            x: Math.floor(a + (b - a) * Math.random()), 
+            y: Math.floor(a + (b - a) * Math.random())
+        };
     }
 
     // Moving the snake 
     for (let i = snakeArr.length - 2; i >= 0; i--) {
-        const element = snakeArr[i]; // Corrected from array[i] to snakeArr[i]
         snakeArr[i + 1] = {...snakeArr[i]};
     }
 
